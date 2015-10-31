@@ -1,0 +1,143 @@
+---
+output: html_document
+---
+
+___
+![logo](logo.png)
+
+___
+
+# Week 1 - Getting familiar with Git and R
+
+Let's get familiar with some of the tools we will be using for a large portion of AQM:
+
+1. [Slack](https://slack.com/) - Our private chat-room
+2. [Git](http://www.git-scm.com/) & [Github](https://github.com/) - Remind me to add you to our private AQM organisation
+3. [R](https://www.r-project.org/) with [Rstudio](https://www.rstudio.com/)
+
+Please follow along with these slides to get more acquainted: Intro_slides
+
+In order to get set-up, please follow the steps below:
+
+1. [Install R](http://cran.stat.sfu.ca/) - this is the fundamental R statistical language
+2. [Install Rstudio](https://www.rstudio.com/products/rstudio/download/) - this is a nice UI for R. Make sure to get the most up-to-date version for your platform.
+3. [Install Git](http://git-scm.com/) - make sure you can save your work progress with this time-capsule. 
+	* **For Windows users, please install [git for Windows](https://git-for-windows.github.io/), as you will require the git bash that it comes with.**
+4. Set-up a [Github account](https://github.com/)
+5. Get a [free student account](https://education.github.com/)
+
+Now comes the tricky part, which is getting your local git to communicate with Github. We will be using the command user interface for our git operations, so take some time to get familiar with basic [bash shell navigation](http://www.linuxcommand.org/lts0020.php).
+
+1. Open terminal (Mac users) or git bash (Windows users) and type in the following, which correspond to your Github credentials:
+
+```
+git config --global user.name "YOUR NAME"
+git config --global user.email "YOUR EMAIL ADDRESS"
+```
+
+2. Generate an SSH key - this is a secure method to identify and connect to your Github repository without the need to use a password each time. [Follow the tutorial](https://help.github.com/articles/generating-ssh-keys/).
+
+3. Now we can communicate! Please follow [these instructions](http://rogerdudler.github.io/git-guide/) to become a git user. Skip the setup part, since you already completed that above ;)
+
+<br>
+
+#### What to do for next week
+
+* _Follow the walkthrough [here](~/Week1_Setup/SetupWalkthrough.pdf)._
+
+* _Complete the tutorials and tasks for next week: [Work_for_Wednesday.pdf](Work_for_Wednesday.pdf)_
+
+Create and push a personal `README.md` file to your repository telling us about yourself and what steps you took to push your `README.md` to your Github repository. You must include the following in your `README.md`: 
+	* _italics_, **BOLD**, etc.
+	* A header (try different levels)
+	* Bullet points and numbering
+	* An image of your choice
+
+Be advised, that when you clone your repo, a `README.md` has already been created, so modify that. If you do not have a `README.md`, you will create a new R Markdown file, and add it into the git directory. We must add the following (exact spacing necessary) to the YAML front matter (descriptive chunk at the top) in order to get this `.Rmd` to convert to a `.md`:
+
+```
+output:
+    html_document:
+        keep_md:true
+```
+
+When anyone decides to peek at your repository, the ``README.md`` will instruct them what it is about. Basically, it acts as a landing page for one of your repos. Use the [Markdown Cheatsheet](http://assemble.io/docs/Cheatsheet-Markdown.html) for examples and syntax.
+
+<br>
+<br>
+
+# Week 2 - Data Exploration
+
+Slides: [Intro to data exploration]
+Google page-rank algorithm: source
+
+We begin to explore `data.frames` using simple functions that give us a brief understanding of what the data entails:
+
+* `dim()`, `nrow()`, `ncol()`
+* `str()`
+* `is.data.frame()`, `is.matrix()`, `is.vector()`, etc.
+* `summary()`
+
+We then delved into the powerful dplyr package. Remember, `data.frames` are special forms of data objects in R that enable us to combine numerical, factor, string, and other types of data together. A simple matrix cannot combine different types of data, as we saw in class. We covered useful dplyr "verbs" that perform routine operations on your data, including:
+
+* `select()` - select the variables (columns) of the data you are interested in.
+* `filter()` - filter the rows of the data.frame utilising your logical operators `>`,`<`,`>=`,`<=`, and `==` .
+* `group_by()` - group the data according to some category, for instance, group all data by continent.
+* `mutate()` - mutate or transform one variable into another using some function. For example, create a new variable (column) that is a combination of two other variables (population and GDP).
+* `summarise()`  - Summarise multiple values to a single value. For example, the mean GDP or total GDP of each continent, where the continent group was created using the function `group_by()`.
+
+We also learned about the use of the piping commands `%>%`, using `command⌘+shift+m,` making data wrangling intuitive and easy. Here's a n example:
+
+<br>
+
+#### QUESTION: Can you find the world growth of GDP per Capita in 1997?
+
+I would just like to **select** the year, continent and gdpPercap variables from the gapminder data object, **mutate** gdpPercap into a new variable (column) called change (rate of change of gdpPercap), **filter** all years greater (but not equal to) 1952 (why?), **group_by year**, and **summarize** the data by the mean rate of change of gdpPercap per the grouped category, year.
+
+```{r, echo=FALSE, message=FALSE}
+library(dplyr)
+library(gapminder)
+library(knitr)
+```
+
+```{r}
+gdp.delta <- gapminder %>%
+    select(year, continent, gdpPercap) %>%
+    mutate(change = 100*((gdpPercap - lag(gdpPercap)))/gdpPercap) %>%
+    filter(year > 1952) %>%
+    group_by(year) %>%
+    summarise(gdp_delta = mean(change))
+```
+
+The result is an object `gdp.delta` with the mean rate of change of GDP per Capita for each year (5-year lag), as below:
+
+```{r,echo=FALSE,results='asis'}
+kable(gdp.delta, align = "c")
+```
+
+<br>
+
+#### Group Project
+
+Time for the first group project! Hopefully you remember your number from Wednesday. This will be due **Wednesday, November 4th**.
+
+Your data choices for this project are given below:
+
+1. [Gapminder.tsv](Data/gapminder.tsv)
+
+> _If your choice is Gapminder, please learn more [here](https://github.com/jennybc/gapminder)._
+
+2. [Aquisitions.csv](Data/CrunchBase/Aquisitions.csv)
+3. [Companies.csv](Data/CrunchBase/Companies.csv)
+4. [Investment.csv](Data/CrunchBase/Investment.csv)
+5. [Rounds.csv](Data/CrunchBase/Rounds.csv)
+
+> _The other data sets come from [Crunchbase](https://modeanalytics.com/crunchbase). You can use any on of the data sets, but if you're up for a challenge, these data have commonalities and can be combined using operations provided in the slides provided above. "[Crunchbase](https://modeanalytics.com/crunchbase) is quickly becoming the dataset of record for the startup and venture capital communities. It can provide information on anything from what industries are hot (biotech) to the potential effects of founder experience or age. The dataset includes funding, investment, and acquisition data on over 40,000 companies"._ 
+
+**Objective:** Refine your data exploration skills using simple functions and identify some interesting features using the dplyr "verbs" and pipelines. My recommendation is to come up with a hypothesis of a certain phenomenon, allocate certain aspects amongst group members, then use your newly aquired data wrangling skills to accept/reject your hypothesis. Did you find something else interesting in the process?
+
+**Expectations:** An objective was established, all members contributed to obtaining that objective, and a presentation regarding your group's findings will be delivered, involving each member of the group.
+
+<br>
+
+
