@@ -1,5 +1,6 @@
 ---
 output: html_document
+
 ---
 
 ___
@@ -68,7 +69,7 @@ When anyone decides to peek at your repository, the ``README.md`` will instruct 
 
 # Week 2 - Data Exploration
 
-Slides: [Intro to data exploration]
+Slides: [Intro to data exploration](https://htmlpreview.github.io/?https://github.com/AQM-UBC/CourseMaterial/blob/master/Week1_Setup/slides01_Intro.html#/)
 Google page-rank algorithm: source
 
 We begin to explore `data.frames` using simple functions that give us a brief understanding of what the data entails:
