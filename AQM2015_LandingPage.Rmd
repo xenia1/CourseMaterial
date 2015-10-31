@@ -10,6 +10,8 @@ ___
 
 # Week 1 - Getting familiar with Git and R
 
+Slides: [Intro to R and Git](https://htmlpreview.github.io/?https://github.com/AQM-UBC/CourseMaterial/blob/master/Week1_Setup/slides01_Intro.html)
+
 Let's get familiar with some of the tools we will be using for a large portion of AQM:
 
 1. [Slack](https://slack.com/) - Our private chat-room
@@ -44,9 +46,9 @@ git config --global user.email "YOUR EMAIL ADDRESS"
 
 #### What to do for next week
 
-* _Follow the walkthrough [here](~/Week1_Setup/SetupWalkthrough.pdf)._
+* _Follow the walkthrough [here](https://github.com/AQM-UBC/CourseMaterial/raw/master/Week1_Setup/SetupWalkthrough.pdf)._
 
-* _Complete the tutorials and tasks for next week: [Work_for_Wednesday.pdf](Work_for_Wednesday.pdf)_
+* _Complete the tutorials and tasks for next week: [Work_for_Wednesday.pdf](https://github.com/AQM-UBC/CourseMaterial/raw/master/Week2_Exploration/Work_for_Wednesday.pdf)_
 
 Create and push a personal `README.md` file to your repository telling us about yourself and what steps you took to push your `README.md` to your Github repository. You must include the following in your `README.md`: 
 	* _italics_, **BOLD**, etc.
@@ -69,7 +71,7 @@ When anyone decides to peek at your repository, the ``README.md`` will instruct 
 
 # Week 2 - Data Exploration
 
-Slides: [Intro to data exploration](https://htmlpreview.github.io/?https://github.com/AQM-UBC/CourseMaterial/blob/master/Week1_Setup/slides01_Intro.html#/)
+Slides: [Intro to data exploration](https://htmlpreview.github.io/?https://github.com/AQM-UBC/CourseMaterial/blob/master/Week2_Exploration/index.html)
 Google page-rank algorithm: source
 
 We begin to explore `data.frames` using simple functions that give us a brief understanding of what the data entails:
@@ -122,16 +124,16 @@ kable(gdp.delta, align = "c")
 
 Time for the first group project! Hopefully you remember your number from Wednesday. This will be due **Wednesday, November 4th**.
 
-Your data choices for this project are given below:
+Your data choices for this project are given below (mind the file formats):
 
-1. [Gapminder.tsv](Data/gapminder.tsv)
+1. [Gapminder.tsv](https://raw.githubusercontent.com/AQM-UBC/CourseMaterial/master/Week2_Exploration/Data/gapminder.tsv)
 
 > _If your choice is Gapminder, please learn more [here](https://github.com/jennybc/gapminder)._
 
-2. [Aquisitions.csv](Data/CrunchBase/Aquisitions.csv)
-3. [Companies.csv](Data/CrunchBase/Companies.csv)
-4. [Investment.csv](Data/CrunchBase/Investment.csv)
-5. [Rounds.csv](Data/CrunchBase/Rounds.csv)
+2. [Aquisitions.csv](https://raw.githubusercontent.com/AQM-UBC/CourseMaterial/master/Week2_Exploration/Data/CrunchBase/Aquisitions.csv)
+3. [Companies.csv](https://raw.githubusercontent.com/AQM-UBC/CourseMaterial/master/Week2_Exploration/Data/CrunchBase/Companies.csv)
+4. [Investment.csv](https://raw.githubusercontent.com/AQM-UBC/CourseMaterial/master/Week2_Exploration/Data/CrunchBase/Investment.csv)
+5. [Rounds.csv](https://raw.githubusercontent.com/AQM-UBC/CourseMaterial/master/Week2_Exploration/Data/CrunchBase/Rounds.csv)
 
 > _The other data sets come from [Crunchbase](https://modeanalytics.com/crunchbase). You can use any on of the data sets, but if you're up for a challenge, these data have commonalities and can be combined using operations provided in the slides provided above. "[Crunchbase](https://modeanalytics.com/crunchbase) is quickly becoming the dataset of record for the startup and venture capital communities. It can provide information on anything from what industries are hot (biotech) to the potential effects of founder experience or age. The dataset includes funding, investment, and acquisition data on over 40,000 companies"._ 
 
