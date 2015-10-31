@@ -71,8 +71,14 @@ When anyone decides to peek at your repository, the ``README.md`` will instruct 
 
 # Week 2 - Data Exploration
 
-Slides: [Intro to data exploration](https://htmlpreview.github.io/?https://github.com/AQM-UBC/CourseMaterial/blob/master/Week2_Exploration/index.html)
-Google page-rank algorithm: source
+___
+**Slides:** [Intro to data exploration](https://htmlpreview.github.io/?https://github.com/AQM-UBC/CourseMaterial/blob/master/Week2_Exploration/index.html)
+
+**Google page-rank algorithm:** [source (pending)]
+
+**Please check out** [Introduction to dplyr](https://cran.rstudio.com/web/packages/dplyr/vignettes/introduction.html)
+
+___
 
 We begin to explore `data.frames` using simple functions that give us a brief understanding of what the data entails:
 
