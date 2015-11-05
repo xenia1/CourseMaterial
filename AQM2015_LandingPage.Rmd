@@ -233,7 +233,7 @@ print(plot4)
 
 Please follow along with the following examples and tutorials to improve those ggplot skills:
 
-* Try these [ggplot challenges](http://htmlpreview.github.io/?https://github.com/Dustin21/Dustin21.github.io/blob/master/AQM/Week10_Data_Exploration/ggplot_challenges.html)
+* Try these [ggplot challenges](https://htmlpreview.github.io/?https://github.com/AQM-UBC/CourseMaterial/blob/master/Week3_Visualisation/ggplot_challenges.html)
 * Check out the [ggplot2 graphics cookbook](http://www.cookbook-r.com/Graphs/index.html)
 * Keep things interesting with ggplot2 [themes](http://docs.ggplot2.org/dev/vignettes/themes.html)
 * A bunch of tutorials on [different types of visualisations with ggplot2](http://docs.ggplot2.org/current/)
@@ -396,4 +396,34 @@ d1$setTemplate(
 <br>
 
 ### <font color="green">Shiny</font>
+
+Welcome to Shiny, where you can make wonderfully looking jave-based apps in a fraction of the time. Shiny uses what is known as [ractive programming](https://en.wikipedia.org/wiki/Reactive_programming). Shiny apps have two components:
+
+* a user-interface script
+* a server script
+
+"The user-interface (ui) script controls the layout and appearance of your app. It is defined in a source script named ui.R. The server.R script contains the instructions that your computer needs to build your app."
+
+First, let's begin by installing shiny:
+
+```{r, eval=FALSE}
+install.packages("shiny")
+```
+
+Then check out an example to see how it works:
+
+```{r, eval=FALSE}
+library(shiny)
+runExample("01_hello")
+```
+
+The best way to learn, rather than me reiterating everything, is to follow along with this [tutorial](http://shiny.rstudio.com/).
+
+
+The project for next week awaits...
+
+<br>
+<br>
+
+
 
