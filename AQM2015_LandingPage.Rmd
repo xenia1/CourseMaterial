@@ -397,4 +397,3 @@ d1$setTemplate(
 
 ### <font color="green">Shiny</font>
 
-Welcome to Shiny, where 
