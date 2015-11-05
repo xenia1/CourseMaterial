@@ -393,6 +393,8 @@ d1$setTemplate(
 
 ##### CHALLENGE: Recreate the plot above from one of the templates provided on the site using the trusty Gapminder data set.
 
+<br>
 
 ### <font color="green">Shiny</font>
 
+Welcome to Shiny, where 
