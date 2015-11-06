@@ -1,9 +1,3 @@
----
-output: 
-  html_document:
-    keep_md: true
-
----
 
 ___
 ![logo](logo.png)
@@ -110,13 +104,10 @@ We also learned about the use of the piping commands `%>%`, using `command⌘+sh
 
 I would just like to **select** the year, continent and gdpPercap variables from the gapminder data object, **mutate** gdpPercap into a new variable (column) called change (rate of change of gdpPercap), **filter** all years greater (but not equal to) 1952 (why?), **group_by year**, and **summarize** the data by the mean rate of change of gdpPercap per the grouped category, year.
 
-```{r, echo=FALSE, message=FALSE}
-library(dplyr)
-library(gapminder)
-library(knitr)
-```
 
-```{r}
+
+
+```r
 gdp.delta <- gapminder %>%
     select(year, continent, gdpPercap) %>%
     mutate(change = 100*((gdpPercap - lag(gdpPercap)))/gdpPercap) %>%
@@ -127,9 +118,20 @@ gdp.delta <- gapminder %>%
 
 The result is an object `gdp.delta` with the mean rate of change of GDP per Capita for each year (5-year lag), as below:
 
-```{r,echo=FALSE,results='asis'}
-kable(gdp.delta, align = "c")
-```
+
+ year    gdp_delta  
+------  ------------
+ 1957    12.6140175 
+ 1962    11.0293491 
+ 1967    12.8726900 
+ 1972    13.8092669 
+ 1977    8.2764706  
+ 1982    3.0273164  
+ 1987    0.3031941  
+ 1992    -3.2216599 
+ 1997    6.0489270  
+ 2002    5.8104172  
+ 2007    13.8184345 
 
 <br>
 
@@ -196,7 +198,8 @@ By the same creator of your favourite dplyr package, ggplot2 easily extends your
 
 Let's extend the question from week 2, but this time, let's answer the question with a ggplot visual!
 
-```{r,message=FALSE}
+
+```r
 # load library
 library(ggplot2)
 
@@ -224,15 +227,20 @@ plot3 <- plot2 +
 print(plot3)
 ```
 
+![](AQM2015_LandingPage_files/figure-html/unnamed-chunk-4-1.png) 
+
 We can now simply say that the largest drop in mean growth occurred in Europe in 1992 without looking at a bunch of data! Although, it's best to accompany your plot with a data table. So, now you can answer the question of what caused this drop in the first place... any ideas?
 
 We can make the plot look even prettier or simplistic or adjust the legend by adjusting the themes.
 
-```{r}
+
+```r
 # remove the clutter
 plot4 <- plot3 + theme_bw()
 print(plot4)
 ```
+
+![](AQM2015_LandingPage_files/figure-html/unnamed-chunk-5-1.png) 
 
 Please follow along with the following examples and tutorials to improve those ggplot skills:
 
@@ -252,7 +260,8 @@ Basically, you can develop sophistocated, interactive visualisations from your v
 
 To [get started](http://ramnathv.github.io/rCharts/), you need to install the following package(s):
 
-```{r, eval=FALSE}
+
+```r
 install.packages("devtools") # if you haven't already
 
 library(devtools)
@@ -265,7 +274,8 @@ As with anything in this course, let's dive into an example using a [stackedArea
 
 <br>
 
-```{r, eval=FALSE}
+
+```r
 library(rCharts)
 library(RColorBrewer) # for pretty colours
 
@@ -309,7 +319,8 @@ This [stackedAreaChart](http://walkerke.github.io/2014/08/un-projections/) shows
 
 Check out the Gapminder implementation of the code for this one below (it's just a modification of the original code. Only adjust the legend title in the script as I did):
 
-```{r, eval=FALSE}
+
+```r
 gap <- gapminder %>% filter(year == 1977)
 
 d1 <- dPlot(
@@ -412,13 +423,15 @@ Welcome to Shiny, where you can make wonderfully looking jave-based apps in a fr
 
 First, let's begin by installing shiny:
 
-```{r, eval=FALSE}
+
+```r
 install.packages("shiny")
 ```
 
 Then check out an example to see how it works:
 
-```{r, eval=FALSE}
+
+```r
 library(shiny)
 runExample("01_hello")
 ```
