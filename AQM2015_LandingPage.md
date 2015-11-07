@@ -4,8 +4,24 @@ ___
 
 ___
 
+# Table of contents
+1. [<font color="blue">Week 1 - Getting familiar with Git and R</font>](#Week 1)
+	* [Week 1 Tasks](#tasks_week1)
+2. [<font color="blue">Week 2 - Data Exploration</font>](#Week 2)
+	* [dplyr](#dplyr)
+		* [<font color="orange">dplyr Challenge</font>](#challenge_dplyr)
+	* [Group Project](#groupProject1)
+3. [<font color="blue">Week 3 - Visualisation</font>](#Week 3)
+	* [ggplot2](#ggplot2)
+		* [<font color="orange">ggplot Challenge</font>](#challenge_ggplot)
+	* [rCharts](#rCharts)
+		* [<font color="orange">rCharts Challenge</font>](#challenge_rCharts)
+	* [Shiny](#Shiny)
+	* [Week 3 Tasks & Group Work](#tasks_week3)
+	* [<font color="green">Left of the Dot Consulting Project</font>](#lotd)
 
-# Week 1 - Getting familiar with Git and R
+
+# Week 1 - Getting familiar with Git and R <a name="Week 1"></a>
 
 Slides: [Intro to R and Git](https://htmlpreview.github.io/?https://github.com/AQM-UBC/CourseMaterial/blob/master/Week1_Setup/slides01_Intro.html)
 
@@ -30,7 +46,8 @@ Now comes the tricky part, which is getting your local git to communicate with G
 
 1. Open terminal (Mac users) or git bash (Windows users) and type in the following, which correspond to your Github credentials:
 
-```
+
+```r
 git config --global user.name "YOUR NAME"
 git config --global user.email "YOUR EMAIL ADDRESS"
 ```
@@ -41,7 +58,7 @@ git config --global user.email "YOUR EMAIL ADDRESS"
 
 <br>
 
-#### What to do for next week
+#### Tasks to complete for next week <a name="tasks_week1"></a>
 
 * _Follow the walkthrough [here](https://github.com/AQM-UBC/CourseMaterial/raw/master/Week1_Setup/SetupWalkthrough.pdf)._
 
@@ -55,7 +72,8 @@ Create and push a personal `README.md` file to your repository telling us about 
 
 Be advised, that when you clone your repo, a `README.md` has already been created, so modify that. If you do not have a `README.md`, you will create a new R Markdown file, and add it into the git directory. We must add the following (exact spacing necessary) to the YAML front matter (descriptive chunk at the top) in order to get this `.Rmd` to convert to a `.md`:
 
-```
+
+```r
 output:
     html_document:
         keep_md:true
@@ -64,13 +82,11 @@ output:
 When anyone decides to peek at your repository, the ``README.md`` will instruct them what it is about. Basically, it acts as a landing page for one of your repos. Use the [Markdown Cheatsheet](http://assemble.io/docs/Cheatsheet-Markdown.html) for examples and syntax.
 
 <br>
-
-___
-___
-
+<br>
+<br>
 <br>
 
-# Week 2 - Data Exploration
+# Week 2 - Data Exploration <a name="Week 2"></a>
 
 ___
 **Slides:** [Intro to data exploration](https://htmlpreview.github.io/?https://github.com/AQM-UBC/CourseMaterial/blob/master/Week2_Exploration/index.html)
@@ -88,6 +104,8 @@ We begin to explore `data.frames` using simple functions that give us a brief un
 * `is.data.frame()`, `is.matrix()`, `is.vector()`, etc.
 * `summary()`
 
+### dplyr <a name="dplyr"></a>
+
 We then delved into the powerful dplyr package. Remember, `data.frames` are special forms of data objects in R that enable us to combine numerical, factor, string, and other types of data together. A simple matrix cannot combine different types of data, as we saw in class. We covered useful dplyr "verbs" that perform routine operations on your data, including:
 
 * `select()` - select the variables (columns) of the data you are interested in.
@@ -100,7 +118,7 @@ We also learned about the use of the piping commands `%>%`, using `command⌘+sh
 
 <br>
 
-#### QUESTION: Can you find the world growth of GDP per Capita in 1997?
+#### Challenge: Can you find the world growth of GDP per Capita in 1997? <a name="challenge_dplyr"></a>
 
 I would just like to **select** the year, continent and gdpPercap variables from the gapminder data object, **mutate** gdpPercap into a new variable (column) called change (rate of change of gdpPercap), **filter** all years greater (but not equal to) 1952 (why?), **group_by year**, and **summarize** the data by the mean rate of change of gdpPercap per the grouped category, year.
 
@@ -135,7 +153,7 @@ The result is an object `gdp.delta` with the mean rate of change of GDP per Capi
 
 <br>
 
-#### Group Project
+#### Group Project <a name="groupProject1"></a>
 
 Time for the first group project! Hopefully you remember your number from Wednesday. This will be due **Wednesday, November 4th**.
 
@@ -157,19 +175,19 @@ Your data choices for this project are given below (mind the file formats):
 **Expectations:** An objective was established, all members contributed to obtaining that objective, and a presentation regarding your group's findings will be delivered, involving each member of the group.
 
 <br>
-
-___
-___
-
+<br>
+<br>
 <br>
 
-# Week 3 - Visualisation
+# Week 3 - Visualisation  <a name="Week 3"></a>
+
+___
 
 So we can manipulate data and attempt to find some patterns, but visualisations make the much easier. It also makes a large difference when presenting your findings to a group of clients or your boss. This week we will delve into ggplot2, rCharts and if all goes well, Shiny! 
 
 <br>
 
-### <font color="red">ggplot2</font>
+### <font color="orange">ggplot2</font>  <a name="ggplot2"></a>
 By the same creator of your favourite dplyr package, ggplot2 easily extends your wrangled data.frames to eye-pleasing visualisations. The syntax is quite simple:
 
 <font size=5>
@@ -194,7 +212,7 @@ By the same creator of your favourite dplyr package, ggplot2 easily extends your
 
 <br>
 
-##### QUESTION: Can you find which continent has the lowest mean growth of GDP per Capita in 1992?
+#### Challenge: Can you find which continent has the lowest mean growth of GDP per Capita in 1992? <a name="challenge_ggplot"></a>
 
 Let's extend the question from week 2, but this time, let's answer the question with a ggplot visual!
 
@@ -227,7 +245,7 @@ plot3 <- plot2 +
 print(plot3)
 ```
 
-![](AQM2015_LandingPage_files/figure-html/unnamed-chunk-4-1.png) 
+![](AQM2015_LandingPage_files/figure-html/unnamed-chunk-6-1.png) 
 
 We can now simply say that the largest drop in mean growth occurred in Europe in 1992 without looking at a bunch of data! Although, it's best to accompany your plot with a data table. So, now you can answer the question of what caused this drop in the first place... any ideas?
 
@@ -240,7 +258,7 @@ plot4 <- plot3 + theme_bw()
 print(plot4)
 ```
 
-![](AQM2015_LandingPage_files/figure-html/unnamed-chunk-5-1.png) 
+![](AQM2015_LandingPage_files/figure-html/unnamed-chunk-7-1.png) 
 
 Please follow along with the following examples and tutorials to improve those ggplot skills:
 
@@ -252,7 +270,7 @@ Please follow along with the following examples and tutorials to improve those g
 
 <br>
 
-### <font color="blue">rCharts</font>
+### <font color="blue">rCharts</font> <a name="rCharts"></a>
 
 "rCharts is an R package to create, customize and publish interactive javascript visualizations from R using a familiar lattice style plotting interface."
 
@@ -408,11 +426,11 @@ d1$setTemplate(
 
 <br>
 
-##### CHALLENGE: Recreate the plot above from one of the templates provided on the site using the trusty Gapminder data set.
+##### CHALLENGE: Recreate the plot above from one of the templates provided on the site using the trusty Gapminder data set. <a name="challenge_rCharts"></a>
 
 <br>
 
-### <font color="green">Shiny</font>
+### <font color="magenta">Shiny</font> <a name="Shiny"></a>
 
 Welcome to Shiny, where you can make wonderfully looking jave-based apps in a fraction of the time. Shiny uses what is known as [ractive programming](https://en.wikipedia.org/wiki/Reactive_programming). Shiny apps have two components:
 
@@ -440,7 +458,7 @@ The best way to learn, rather than me reiterating everything, is to follow along
 
 <br>
 
-#### Tasks for next week:
+#### Tasks for next week <a name="tasks_week3"></a>
 
 1. Create a `README.md` file for your group repository. You will need different sub-folders in your group repository for different projects, each with a specific `README.md` landing page. Your main `README.md` for the repo should be a directory or "table of contents" linking each project folder. Structure it similar to [Jenny's repo here](https://github.com/jennybc/ggplot2-tutorial). Jenny is a very notable Statistics prof from UBC focussing on data visualisation!
 <br><br>
@@ -450,7 +468,9 @@ In your `README.md`, please cover your group's hypothesis, results obtained and 
 
 3. Begin walking through the Shiny tutorial given above for an intro to constructing R apps. Follow along to the point where you finish and test one of the apps they provide in the tutorial for yourself.
 
-4. Get back into your project groups, create a new subfolder within your group repo, and query from Left of the Dot's PostgreSQL database. Check the code he added to the _Slack General_ page. Your job is similar to the last - form a hypothesis and begin exploring that data with your added visualisation skills! Check out this helpful [tutorial](http://www.r-bloggers.com/r-and-postgresql-using-rpostgresql-and-sqldf/). We will have a milestone check next week when we decide to meet.
+#### <font color="green">Left of the Dot Consulting Project</font> <a name="lotd"></a>
+
+Get back into your project groups, create a new subfolder within your group repo, and query from Left of the Dot's PostgreSQL database. Check the code he added to the _Slack General_ page. Your job is similar to the last - form a hypothesis and begin exploring that data with your added visualisation skills! Check out this helpful [tutorial](http://www.r-bloggers.com/r-and-postgresql-using-rpostgresql-and-sqldf/). We will have a milestone check next week when we decide to meet. For further discussion and material about our consulting engagement, please refer to our private means of communication (Slack and/or AQM Github Organisation).
 
 <br>
 <br>
