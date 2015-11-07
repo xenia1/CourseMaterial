@@ -12,7 +12,10 @@ ___
 
 ___
 
-# Table of contents
+# Table of Contents
+
+___
+
 1. [<font color="blue">Week 1 - Getting familiar with Git and R</font>](#Week 1)
 	* [Week 1 Tasks](#tasks_week1)
 2. [<font color="blue">Week 2 - Data Exploration</font>](#Week 2)
@@ -27,9 +30,17 @@ ___
 	* [Shiny](#Shiny)
 	* [Week 3 Tasks & Group Work](#tasks_week3)
 	* [<font color="green">Left of the Dot Consulting Project</font>](#lotd)
+	
+<br>
+<br>
+<br>
+<br>
 
+___
 
 # Week 1 - Getting familiar with Git and R <a name="Week 1"></a>
+
+___
 
 Slides: [Intro to R and Git](https://htmlpreview.github.io/?https://github.com/AQM-UBC/CourseMaterial/blob/master/Week1_Setup/slides01_Intro.html)
 
@@ -91,6 +102,8 @@ When anyone decides to peek at your repository, the ``README.md`` will instruct 
 <br>
 <br>
 <br>
+
+___
 
 # Week 2 - Data Exploration <a name="Week 2"></a>
 
@@ -175,6 +188,8 @@ Your data choices for this project are given below (mind the file formats):
 <br>
 <br>
 <br>
+
+___
 
 # Week 3 - Visualisation  <a name="Week 3"></a>
 
