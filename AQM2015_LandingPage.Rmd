@@ -235,7 +235,7 @@ plot2 <- plot.frame + geom_line(aes(colour = continent))
 # add axis labels and a title
 plot3 <- plot2 + 
 	ggtitle("Mean growth of GDP per Capita by Continent \n ~ 1992 - 2007 ~") +
-	xlab("Year") + ylab("Life Expectancy")
+	xlab("Year") + ylab("GDP per capita")
 
 # print the plot
 print(plot3)
