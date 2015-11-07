@@ -21,7 +21,7 @@ ___
 		* [<font color="orange">rCharts Challenge</font>](#challenge_rCharts)
 	* [Shiny](#Shiny)
 	* [Week 3 Tasks & Group Work](#tasks_week3)
-	* [<font color="green">Left of the Dot Consulting Project</font>](#lotd)
+	* [<font color="green">Left of the Dot Capstone Project</font>](#lotd)
 	
 <br>
 <br>
@@ -483,9 +483,9 @@ In your `README.md`, please cover your group's hypothesis, results obtained and 
 
 3. Begin walking through the Shiny tutorial given above for an intro to constructing R apps. Follow along to the point where you finish and test one of the apps they provide in the tutorial for yourself.
 
-#### <font color="green">Left of the Dot Consulting Project</font> <a name="lotd"></a>
+#### <font color="green">Left of the Dot Capstone Project</font> <a name="lotd"></a>
 
-Get back into your project groups, create a new subfolder within your group repo, and query from Left of the Dot's PostgreSQL database. Check the code he added to the _Slack General_ page. Your job is similar to the last - form a hypothesis and begin exploring that data with your added visualisation skills! Check out this helpful [tutorial](http://www.r-bloggers.com/r-and-postgresql-using-rpostgresql-and-sqldf/). We will have a milestone check next week when we decide to meet. For further discussion and material about our consulting engagement, please refer to our private means of communication (Slack and/or AQM Github Organisation).
+Get back into your project groups, create a new subfolder within your group repo, and query from [Left of the Dot](https://www.leftofthedot.com/)'s PostgreSQL database. Check the code he added to the _Slack General_ page. Your job is similar to the last - form a hypothesis and begin exploring that data with your added visualisation skills! Check out this helpful [tutorial](http://www.r-bloggers.com/r-and-postgresql-using-rpostgresql-and-sqldf/). We will have a milestone check next week when we decide to meet. For further discussion and material about our consulting engagement, please refer to our private means of communication (Slack and/or AQM Github Organisation).
 
 <br>
 <br>
