@@ -508,12 +508,15 @@ Mathematical models are simplified descriptions of a real-life phenomenon. As ev
 
 Please cover the following linear algebra primers for next class, as it will be essential to your understanding.
 
-* [Linear Algebra Primer]
-* [Dealing with matrices in R]
-* [Linear Algebra Application]
+* [Linear Algebra Primer](https://github.com/AQM-UBC/CourseMaterial/raw/master/Week4_MathFoundation/LinearAlgebra_Primer.pdf)
+* [Dealing with matrices in R](https://github.com/AQM-UBC/CourseMaterial/raw/master/Week4_MathFoundation/LinearAlgebra_Primer.pdf)
+* [Linear Algebra Application](https://github.com/AQM-UBC/CourseMaterial/raw/master/Week4_MathFoundation/LinearAlgebra_Application.pdf)
 
 ### Probability <a name="prob"></a>
 
-Primer: [probability_primer.pdf]
+Here's a quick intro to probability I'd like you to cover for Wednesday.
+
+Primer: [probability_primer.pdf](https://www.ncsu.edu/crsc/events/ugw06/presentations/scheywar/finalundergrad.pdf)
+
 
 <br><br>
