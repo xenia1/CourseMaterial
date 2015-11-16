@@ -531,7 +531,45 @@ d1$<span class="kw">setTemplate</span>(
 <div id="left-of-the-dot-capstone-project" class="section level1">
 <h1><font color="green">Left of the Dot Capstone Project</font> <a name="lotd"></a></h1>
 <hr />
-<p>Get back into your project groups, create a new subfolder within your group repo, and query from <a href="https://www.leftofthedot.com/">Left of the Dot</a>’s PostgreSQL database. Check the code he added to the <em>Slack General</em> page. Your job is similar to the last - form a hypothesis and begin exploring that data with your added visualisation skills! Check out this helpful <a href="http://www.r-bloggers.com/r-and-postgresql-using-rpostgresql-and-sqldf/">tutorial</a>. We will have a milestone check next week when we decide to meet. For further discussion and material about our consulting engagement, please refer to our private means of communication (Slack and/or AQM Github Organisation).</p>
+<p>Get back into your project groups, create a new subfolder within your group repo, and query from <a href="https://www.leftofthedot.com/">Left of the Dot</a>’s PostgreSQL database. Check the code he added to the <em>Slack General</em> page. Your job is similar to the last - form a hypothesis and begin exploring that data with your added visualisation skills! Check out this helpful <a href="http://www.r-bloggers.com/r-and-postgresql-using-rpostgresql-and-sqldf/">tutorial</a>. We will have a milestone check next week when we decide to meet.</p>
+<p>For further discussion and material about our consulting engagement, including database credentials, please refer to our private means of communication (Slack and/or AQM Github Organisation). We covered the following in class:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co">#install.packages(&quot;RPostgreSQL&quot;) # install if you haven't already</span>
+<span class="kw">library</span>(RPostgreSQL)
+<span class="kw">library</span>(dplyr)
+
+<span class="co"># remove any existing lists</span>
+<span class="kw">rm</span>(<span class="dt">list=</span><span class="kw">ls</span>())
+
+<span class="co"># connect to the PostgreSQL database - use private credentials provided on Slack</span>
+db &lt;-<span class="st"> </span><span class="kw">src_postgres</span>(<span class="dt">dbname=</span><span class="st">&quot;name&quot;</span>, <span class="dt">host =</span> <span class="st">&quot;hostname&quot;</span>, <span class="dt">port =</span> port_number, 
+                                        <span class="dt">user =</span> <span class="st">&quot;username&quot;</span>, <span class="dt">password =</span> <span class="st">&quot;password&quot;</span>)
+
+<span class="co"># check database</span>
+<span class="kw">print</span>(db)
+
+<span class="co"># examine your query</span>
+table &lt;-<span class="st"> </span><span class="kw">tbl</span>(db, <span class="st">&quot;table_of_interest&quot;</span>) %&gt;%
+<span class="st">        </span><span class="co">#perform necessary filters, selections, etc. here</span>
+<span class="st">        </span><span class="kw">filter</span>(.....) %&gt;%
+<span class="st">        </span><span class="kw">select</span>(.....) %&gt;%
+<span class="st">        </span><span class="kw">mutate</span>(.....)
+
+<span class="co"># this gives you the SQL prepared to be sent</span>
+<span class="co"># through the dplyr command - you don't have</span>
+<span class="co"># to write SQL queries!</span>
+adwords$query 
+
+<span class="co"># explains what SQL steps, etc. will happen when you call the object/collect</span>
+<span class="kw">explain</span>(adwords) 
+
+<span class="co"># examine a chunk of the &quot;big data&quot; you intend to call</span>
+<span class="kw">print</span>(table)
+
+<span class="co"># send the query and collect data locally - only when you call the object</span>
+<span class="co"># will the collection of the data to your local computer be initiated.</span>
+<span class="co"># make sure that you don't collect a terabyte of data </span>
+<span class="co"># or you will be sitting in front of your computer a long time!!</span>
+table.dat &lt;-<span class="st"> </span>table %&gt;%<span class="st"> </span>collect</code></pre>
 <p><br> <br> <br> <br></p>
 <hr />
 </div>

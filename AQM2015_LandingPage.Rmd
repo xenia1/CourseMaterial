@@ -484,7 +484,50 @@ ___
 
 ___
 
-Get back into your project groups, create a new subfolder within your group repo, and query from [Left of the Dot](https://www.leftofthedot.com/)'s PostgreSQL database. Check the code he added to the _Slack General_ page. Your job is similar to the last - form a hypothesis and begin exploring that data with your added visualisation skills! Check out this helpful [tutorial](http://www.r-bloggers.com/r-and-postgresql-using-rpostgresql-and-sqldf/). We will have a milestone check next week when we decide to meet. For further discussion and material about our consulting engagement, please refer to our private means of communication (Slack and/or AQM Github Organisation).
+Get back into your project groups, create a new subfolder within your group repo, and query from [Left of the Dot](https://www.leftofthedot.com/)'s PostgreSQL database. Check the code he added to the _Slack General_ page. Your job is similar to the last - form a hypothesis and begin exploring that data with your added visualisation skills! Check out this helpful [tutorial](http://www.r-bloggers.com/r-and-postgresql-using-rpostgresql-and-sqldf/). We will have a milestone check next week when we decide to meet. 
+
+For further discussion and material about our consulting engagement, including database credentials, please refer to our private means of communication (Slack and/or AQM Github Organisation). We covered the following in class:
+
+```{r, eval=FALSE}
+#install.packages("RPostgreSQL") # install if you haven't already
+library(RPostgreSQL)
+library(dplyr)
+
+# remove any existing lists
+rm(list=ls())
+
+# connect to the PostgreSQL database - use private credentials provided on Slack
+db <- src_postgres(dbname="name", host = "hostname", port = port_number, 
+										user = "username", password = "password")
+
+# check database
+print(db)
+
+# examine your query
+table <- tbl(db, "table_of_interest") %>%
+		#perform necessary filters, selections, etc. here
+		filter(.....) %>%
+		select(.....) %>%
+		mutate(.....)
+
+# this gives you the SQL prepared to be sent
+# through the dplyr command - you don't have
+# to write SQL queries!
+adwords$query 
+
+# explains what SQL steps, etc. will happen when you call the object/collect
+explain(adwords) 
+
+# examine a chunk of the "big data" you intend to call
+print(table)
+
+# send the query and collect data locally - only when you call the object
+# will the collection of the data to your local computer be initiated.
+# make sure that you don't collect a terabyte of data 
+# or you will be sitting in front of your computer a long time!!
+table.dat <- table %>% collect
+```
+
 
 <br>
 <br>
