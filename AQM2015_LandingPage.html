@@ -78,7 +78,7 @@ img {
 <div id="table-of-contents" class="section level1">
 <h1>Table of Contents</h1>
 <hr />
-<ol style="list-style-type: decimal">
+<ul>
 <li><a href="#Week%201"><font color="blue">Week 1 - Getting familiar with Git and R</font></a>
 <ul>
 <li><a href="#tasks_week1">Week 1 Tasks</a></li>
@@ -103,9 +103,14 @@ img {
 </ul></li>
 <li><a href="#Shiny">Shiny</a></li>
 <li><a href="#tasks_week3">Week 3 Tasks &amp; Group Work</a></li>
-<li><a href="#lotd"><font color="green">Left of the Dot Capstone Project</font></a></li>
 </ul></li>
-</ol>
+<li><a href="#lotd"><font color="green">Left of the Dot Capstone Project</font></a></li>
+<li><a href="#Week%204"><font color="blue">Week 4 - Mathematical Foundation</font></a>
+<ul>
+<li><a href="#linAlgebra">Linear Algebra</a></li>
+<li><a href="#prob">Probability</a></li>
+</ul></li>
+</ul>
 <p><br> <br> <br> <br></p>
 <hr />
 </div>
@@ -148,7 +153,13 @@ git config --global user.email <span class="st">&quot;YOUR EMAIL ADDRESS&quot;</
 <li><p><em>Follow the walkthrough <a href="https://github.com/AQM-UBC/CourseMaterial/raw/master/Week1_Setup/SetupWalkthrough.pdf">here</a>.</em></p></li>
 <li><p><em>Complete the tutorials and tasks for next week: <a href="https://github.com/AQM-UBC/CourseMaterial/raw/master/Week2_Exploration/Work_for_Wednesday.pdf">Work_for_Wednesday.pdf</a></em></p></li>
 </ul>
-<p>Create and push a personal <code>README.md</code> file to your repository telling us about yourself and what steps you took to push your <code>README.md</code> to your Github repository. You must include the following in your <code>README.md</code>: * <em>italics</em>, <strong>BOLD</strong>, etc. * A header (try different levels) * Bullet points and numbering * An image of your choice</p>
+<p>Create and push a personal <code>README.md</code> file to your repository telling us about yourself and what steps you took to push your <code>README.md</code> to your Github repository. You must include the following in your <code>README.md</code>:</p>
+<ul>
+<li><em>italics</em>, <strong>BOLD</strong>, etc.</li>
+<li>A header (try different levels)</li>
+<li>Bullet points and numbering</li>
+<li>An image of your choice</li>
+</ul>
 <p>Be advised, that when you clone your repo, a <code>README.md</code> has already been created, so modify that. If you do not have a <code>README.md</code>, you will create a new R Markdown file, and add it into the git directory. We must add the following (exact spacing necessary) to the YAML front matter (descriptive chunk at the top) in order to get this <code>.Rmd</code> to convert to a <code>.md</code>:</p>
 <pre class="sourceCode r"><code class="sourceCode r">output:
 <span class="st">    </span>html_document:
@@ -258,7 +269,7 @@ git config --global user.email <span class="st">&quot;YOUR EMAIL ADDRESS&quot;</
 <li><a href="https://raw.githubusercontent.com/AQM-UBC/CourseMaterial/master/Week2_Exploration/Data/gapminder.tsv">Gapminder.tsv</a></li>
 </ol>
 <blockquote>
-<p><em>If your choice is Gapminder, please learn more <a href="https://github.com/jennybc/gapminder">here</a>.</em></p>
+<p><font size="2">If your choice is Gapminder, please learn more <a href="https://github.com/jennybc/gapminder">here</a>. </font></p>
 </blockquote>
 <ol start="2" style="list-style-type: decimal">
 <li><a href="https://raw.githubusercontent.com/AQM-UBC/CourseMaterial/master/Week2_Exploration/Data/CrunchBase/Aquisitions.csv">Aquisitions.csv</a></li>
@@ -267,7 +278,7 @@ git config --global user.email <span class="st">&quot;YOUR EMAIL ADDRESS&quot;</
 <li><a href="https://raw.githubusercontent.com/AQM-UBC/CourseMaterial/master/Week2_Exploration/Data/CrunchBase/Rounds.csv">Rounds.csv</a></li>
 </ol>
 <blockquote>
-<p><em>The other data sets come from <a href="https://modeanalytics.com/crunchbase">Crunchbase</a>. You can use any on of the data sets, but if you’re up for a challenge, these data have commonalities and can be combined using operations provided in the slides provided above. “<a href="https://modeanalytics.com/crunchbase">Crunchbase</a> is quickly becoming the dataset of record for the startup and venture capital communities. It can provide information on anything from what industries are hot (biotech) to the potential effects of founder experience or age. The dataset includes funding, investment, and acquisition data on over 40,000 companies”.</em></p>
+<p><font size="2">The other data sets come from <a href="https://modeanalytics.com/crunchbase">Crunchbase</a>. You can use any on of the data sets, but if you’re up for a challenge, these data have commonalities and can be combined using operations provided in the slides provided above. “<a href="https://modeanalytics.com/crunchbase">Crunchbase</a> is quickly becoming the dataset of record for the startup and venture capital communities. It can provide information on anything from what industries are hot (biotech) to the potential effects of founder experience or age. The dataset includes funding, investment, and acquisition data on over 40,000 companies”.</font></p>
 </blockquote>
 <p><strong>Objective:</strong> Refine your data exploration skills using simple functions and identify some interesting features using the dplyr “verbs” and pipelines. My recommendation is to come up with a hypothesis of a certain phenomenon, allocate certain aspects amongst group members, then use your newly aquired data wrangling skills to accept/reject your hypothesis. Did you find something else interesting in the process?</p>
 <p><strong>Expectations:</strong> An objective was established, all members contributed to obtaining that objective, and a presentation regarding your group’s findings will be delivered, involving each member of the group.</p>
@@ -512,12 +523,39 @@ d1$<span class="kw">setTemplate</span>(
 <li><p>From your project above, create an interactive <a href="http://rcharts.io/">rChart</a> to demonstrate to the class next week. Just select a template from the <a href="http://rcharts.io/gallery/">rCharts Gallery</a> that suits your data visualisation needs and conform it to fit your data (some problem solving skills required).</p></li>
 <li><p>Begin walking through the Shiny tutorial given above for an intro to constructing R apps. Follow along to the point where you finish and test one of the apps they provide in the tutorial for yourself.</p></li>
 </ol>
+<p><br> <br> <br> <br></p>
+<hr />
 </div>
-<div id="left-of-the-dot-capstone-project" class="section level4">
-<h4><font color="green">Left of the Dot Capstone Project</font> <a name="lotd"></a></h4>
+</div>
+</div>
+<div id="left-of-the-dot-capstone-project" class="section level1">
+<h1><font color="green">Left of the Dot Capstone Project</font> <a name="lotd"></a></h1>
+<hr />
 <p>Get back into your project groups, create a new subfolder within your group repo, and query from <a href="https://www.leftofthedot.com/">Left of the Dot</a>’s PostgreSQL database. Check the code he added to the <em>Slack General</em> page. Your job is similar to the last - form a hypothesis and begin exploring that data with your added visualisation skills! Check out this helpful <a href="http://www.r-bloggers.com/r-and-postgresql-using-rpostgresql-and-sqldf/">tutorial</a>. We will have a milestone check next week when we decide to meet. For further discussion and material about our consulting engagement, please refer to our private means of communication (Slack and/or AQM Github Organisation).</p>
-<p><br> <br></p>
+<p><br> <br> <br> <br></p>
+<hr />
 </div>
+<div id="week-4---mathematical-foundation" class="section level1">
+<h1>Week 4 - Mathematical Foundation <a name="Week 4"></a></h1>
+<hr />
+<p>The remainder of AQM will consist of modelling, therefore it is essential that we develop our mathematical intuition, including calculus, linear algebra and probability theory.</p>
+<blockquote>
+<p>“All models are wrong, but some are useful” <br> <font color="blue" size="2">~ George E. P. Box</font></p>
+</blockquote>
+<p>Mathematical models are simplified descriptions of a real-life phenomenon. As every known factor influencing an outcome cannot (or should not) be included, an important aspect of modelling is identifying how far off your model is from the truth (which could also be random). This measure of error or variance can be explained through a probabilitic interpretation. As we require <em>matrices</em> of data to train our models, the use of linear algebra is also essential.</p>
+<div id="linear-algebra" class="section level3">
+<h3>Linear Algebra <a name="linAlgebra"></a></h3>
+<p>Please cover the following linear algebra primers for next class, as it will be essential to your understanding.</p>
+<ul>
+<li>[Linear Algebra Primer]</li>
+<li>[Dealing with matrices in R]</li>
+<li>[Linear Algebra Application]</li>
+</ul>
+</div>
+<div id="probability" class="section level3">
+<h3>Probability <a name="prob"></a></h3>
+<p>Primer: [probability_primer.pdf]</p>
+<p><br><br></p>
 </div>
 </div>
 

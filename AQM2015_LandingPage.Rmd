@@ -16,20 +16,23 @@ ___
 
 ___
 
-1. [<font color="blue">Week 1 - Getting familiar with Git and R</font>](#Week 1)
+* [<font color="blue">Week 1 - Getting familiar with Git and R</font>](#Week 1)
 	* [Week 1 Tasks](#tasks_week1)
-2. [<font color="blue">Week 2 - Data Exploration</font>](#Week 2)
+* [<font color="blue">Week 2 - Data Exploration</font>](#Week 2)
 	* [dplyr](#dplyr)
 		* [<font color="orange">dplyr Challenge</font>](#challenge_dplyr)
 	* [Group Project](#groupProject1)
-3. [<font color="blue">Week 3 - Visualisation</font>](#Week 3)
+* [<font color="blue">Week 3 - Visualisation</font>](#Week 3)
 	* [ggplot2](#ggplot2)
 		* [<font color="orange">ggplot Challenge</font>](#challenge_ggplot)
 	* [rCharts](#rCharts)
 		* [<font color="orange">rCharts Challenge</font>](#challenge_rCharts)
 	* [Shiny](#Shiny)
 	* [Week 3 Tasks & Group Work](#tasks_week3)
-	* [<font color="green">Left of the Dot Capstone Project</font>](#lotd)
+* [<font color="green">Left of the Dot Capstone Project</font>](#lotd)
+* [<font color="blue">Week 4 - Mathematical Foundation</font>](#Week 4)
+	* [Linear Algebra](#linAlgebra)
+	* [Probability](#prob)
 	
 <br>
 <br>
@@ -83,10 +86,11 @@ git config --global user.email "YOUR EMAIL ADDRESS"
 * _Complete the tutorials and tasks for next week: [Work_for_Wednesday.pdf](https://github.com/AQM-UBC/CourseMaterial/raw/master/Week2_Exploration/Work_for_Wednesday.pdf)_
 
 Create and push a personal `README.md` file to your repository telling us about yourself and what steps you took to push your `README.md` to your Github repository. You must include the following in your `README.md`: 
-	* _italics_, **BOLD**, etc.
-	* A header (try different levels)
-	* Bullet points and numbering
-	* An image of your choice
+
+* _italics_, **BOLD**, etc.
+* A header (try different levels)
+* Bullet points and numbering
+* An image of your choice
 
 Be advised, that when you clone your repo, a `README.md` has already been created, so modify that. If you do not have a `README.md`, you will create a new R Markdown file, and add it into the git directory. We must add the following (exact spacing necessary) to the YAML front matter (descriptive chunk at the top) in order to get this `.Rmd` to convert to a `.md`:
 
@@ -171,14 +175,14 @@ Your data choices for this project are given below (mind the file formats):
 
 1. [Gapminder.tsv](https://raw.githubusercontent.com/AQM-UBC/CourseMaterial/master/Week2_Exploration/Data/gapminder.tsv)
 
-> _If your choice is Gapminder, please learn more [here](https://github.com/jennybc/gapminder)._
+> <font size=2>If your choice is Gapminder, please learn more [here](https://github.com/jennybc/gapminder). </font>
 
 2. [Aquisitions.csv](https://raw.githubusercontent.com/AQM-UBC/CourseMaterial/master/Week2_Exploration/Data/CrunchBase/Aquisitions.csv)
 3. [Companies.csv](https://raw.githubusercontent.com/AQM-UBC/CourseMaterial/master/Week2_Exploration/Data/CrunchBase/Companies.csv)
 4. [Investment.csv](https://raw.githubusercontent.com/AQM-UBC/CourseMaterial/master/Week2_Exploration/Data/CrunchBase/Investment.csv)
 5. [Rounds.csv](https://raw.githubusercontent.com/AQM-UBC/CourseMaterial/master/Week2_Exploration/Data/CrunchBase/Rounds.csv)
 
-> _The other data sets come from [Crunchbase](https://modeanalytics.com/crunchbase). You can use any on of the data sets, but if you're up for a challenge, these data have commonalities and can be combined using operations provided in the slides provided above. "[Crunchbase](https://modeanalytics.com/crunchbase) is quickly becoming the dataset of record for the startup and venture capital communities. It can provide information on anything from what industries are hot (biotech) to the potential effects of founder experience or age. The dataset includes funding, investment, and acquisition data on over 40,000 companies"._ 
+> <font size=2>The other data sets come from [Crunchbase](https://modeanalytics.com/crunchbase). You can use any on of the data sets, but if you're up for a challenge, these data have commonalities and can be combined using operations provided in the slides provided above. "[Crunchbase](https://modeanalytics.com/crunchbase) is quickly becoming the dataset of record for the startup and venture capital communities. It can provide information on anything from what industries are hot (biotech) to the potential effects of founder experience or age. The dataset includes funding, investment, and acquisition data on over 40,000 companies".</font>
 
 **Objective:** Refine your data exploration skills using simple functions and identify some interesting features using the dplyr "verbs" and pipelines. My recommendation is to come up with a hypothesis of a certain phenomenon, allocate certain aspects amongst group members, then use your newly aquired data wrangling skills to accept/reject your hypothesis. Did you find something else interesting in the process?
 
@@ -469,12 +473,47 @@ In your `README.md`, please cover your group's hypothesis, results obtained and 
 
 3. Begin walking through the Shiny tutorial given above for an intro to constructing R apps. Follow along to the point where you finish and test one of the apps they provide in the tutorial for yourself.
 
-#### <font color="green">Left of the Dot Capstone Project</font> <a name="lotd"></a>
+<br>
+<br>
+<br>
+<br>
+
+___
+
+# <font color="green">Left of the Dot Capstone Project</font> <a name="lotd"></a>
+
+___
 
 Get back into your project groups, create a new subfolder within your group repo, and query from [Left of the Dot](https://www.leftofthedot.com/)'s PostgreSQL database. Check the code he added to the _Slack General_ page. Your job is similar to the last - form a hypothesis and begin exploring that data with your added visualisation skills! Check out this helpful [tutorial](http://www.r-bloggers.com/r-and-postgresql-using-rpostgresql-and-sqldf/). We will have a milestone check next week when we decide to meet. For further discussion and material about our consulting engagement, please refer to our private means of communication (Slack and/or AQM Github Organisation).
 
 <br>
 <br>
+<br>
+<br>
 
+___
 
+# Week 4 - Mathematical Foundation <a name="Week 4"></a>
 
+___
+
+The remainder of AQM will consist of modelling, therefore it is essential that we develop our mathematical intuition, including calculus, linear algebra and probability theory.
+
+> "All models are wrong, but some are useful" <br>
+> <font color="blue" size=2>~ George E. P. Box</font> 
+
+Mathematical models are simplified descriptions of a real-life phenomenon. As every known factor influencing an outcome cannot (or should not) be included, an important aspect of modelling is identifying how far off your model is from the truth (which could also be random). This measure of error or variance can be explained through a probabilitic interpretation. As we require _matrices_ of data to train our models, the use of linear algebra is also essential.  
+
+### Linear Algebra <a name="linAlgebra"></a>
+
+Please cover the following linear algebra primers for next class, as it will be essential to your understanding.
+
+* [Linear Algebra Primer]
+* [Dealing with matrices in R]
+* [Linear Algebra Application]
+
+### Probability <a name="prob"></a>
+
+Primer: [probability_primer.pdf]
+
+<br><br>
