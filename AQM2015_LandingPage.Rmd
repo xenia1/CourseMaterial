@@ -30,9 +30,10 @@ ___
 	* [Shiny](#Shiny)
 	* [Week 3 Tasks & Group Work](#tasks_week3)
 * [<font color="green">Left of the Dot Capstone Project</font>](#lotd)
-* [<font color="blue">Week 4 - Mathematical Foundation</font>](#Week 4)
-	* [Linear Algebra](#linAlgebra)
+* [<font color="blue">Week 4 - Intro to Probability and Linear Algebra</font>](#Week 4)
+	* [Get familiar with Linear Algebra](#linAlgebra)
 	* [Probability](#prob)
+* [<font color="blue">Week 5 - Applied Probability and Simulation</font>](#Week 5)
 	
 <br>
 <br>
@@ -343,7 +344,11 @@ This [stackedAreaChart](http://walkerke.github.io/2014/08/un-projections/) shows
 
 <br>
 
-Check out the Gapminder implementation of the code for this one below (it's just a modification of the original code. Only adjust the legend title in the script as I did):
+##### CHALLENGE: Recreate the plot above from one of the templates provided on the site using the trusty Gapminder data set. <a name="challenge_rCharts"></a>
+
+<br>
+
+**ANSWER:** Check out the Gapminder implementation of the code for this one below (it's just a modification of the original code. Only adjust the legend title in the script as I did):
 
 ```{r, eval=FALSE}
 gap <- gapminder %>% filter(year == 1977)
@@ -433,10 +438,6 @@ d1$setTemplate(
 
 <br>
 
-##### CHALLENGE: Recreate the plot above from one of the templates provided on the site using the trusty Gapminder data set. <a name="challenge_rCharts"></a>
-
-<br>
-
 ### <font color="magenta">Shiny</font> <a name="Shiny"></a>
 
 Welcome to Shiny, where you can make wonderfully looking jave-based apps in a fraction of the time. Shiny uses what is known as [ractive programming](https://en.wikipedia.org/wiki/Reactive_programming). Shiny apps have two components:
@@ -513,10 +514,10 @@ table <- tbl(db, "table_of_interest") %>%
 # this gives you the SQL prepared to be sent
 # through the dplyr command - you don't have
 # to write SQL queries!
-adwords$query 
+table$query 
 
 # explains what SQL steps, etc. will happen when you call the object/collect
-explain(adwords) 
+explain(table) 
 
 # examine a chunk of the "big data" you intend to call
 print(table)
@@ -536,7 +537,7 @@ table.dat <- table %>% collect
 
 ___
 
-# Week 4 - Mathematical Foundation <a name="Week 4"></a>
+# Week 4 - Intro to Probability and Linear Algebra <a name="Week 4"></a>
 
 ___
 
@@ -545,21 +546,209 @@ The remainder of AQM will consist of modelling, therefore it is essential that w
 > "All models are wrong, but some are useful" <br>
 > <font color="blue" size=2>~ George E. P. Box</font> 
 
-Mathematical models are simplified descriptions of a real-life phenomenon. As every known factor influencing an outcome cannot (or should not) be included, an important aspect of modelling is identifying how far off your model is from the truth (which could also be random). This measure of error or variance can be explained through a probabilitic interpretation. As we require _matrices_ of data to train our models, the use of linear algebra is also essential.  
+Mathematical models are simplified descriptions of a real-life phenomenon. As every known factor influencing an outcome cannot (or should not) be included, an important aspect of modelling is identifying how far off your model is from the truth (which could also be random). How do we define truth? How do we measure variance from the truth? This section will get us thinking in terms of randomness through probability.
 
-### Linear Algebra <a name="linAlgebra"></a>
+### Get familiar with Linear Algebra <a name="linAlgebra"></a>
 
-Please cover the following linear algebra primers for next class, as it will be essential to your understanding.
+In the real world, we deal with a large amount of data and dimensions, so we must be able to perform operations on matrices containing this large amount of information. Please cover the following linear algebra primers for next class, as it will be essential to your understanding.
 
 * [Linear Algebra Primer](https://github.com/AQM-UBC/CourseMaterial/raw/master/Week4_MathFoundation/LinearAlgebra_Primer.pdf)
-* [Dealing with matrices in R](https://github.com/AQM-UBC/CourseMaterial/raw/master/Week4_MathFoundation/LinearAlgebra_Primer.pdf)
+* [Dealing with matrices in R](https://github.com/AQM-UBC/CourseMaterial/raw/master/Week4_MathFoundation/R_and_LinearAlgebra.pdf)
 * [Linear Algebra Application](https://github.com/AQM-UBC/CourseMaterial/raw/master/Week4_MathFoundation/LinearAlgebra_Application.pdf)
 
 ### Probability <a name="prob"></a>
 
-Here's a quick intro to probability I'd like you to cover for Wednesday.
+The primer will give a quick intro to jog your memory, but we will jumping far beyond these basics, so get prepared to think _probabilistically_. The slides will be helpful before jumping ahead.
 
 Primer: [probability_primer.pdf](https://www.ncsu.edu/crsc/events/ugw06/presentations/scheywar/finalundergrad.pdf)
 
+Slides: 
+
+<br> 
+
+##### Expected Value
+
+When a certain phenomenon repeats itself over and over again, we begin to understand increasingly more about it. Let's say I'm interested in determining the average height of entering a bar. I will continue to collect the heights of each individual that enters the bar. As I gather more heights, my expectation of the height of entrants becomes more certain.
+
+The expectation is just a weighted average of the outcomes:
+
+$$
+\operatorname{E}(X) = \mu = \sum_{i=1}^\infty x_i\, p_i \rightarrow  \int_{-\infty}^\infty x f(x)\, \mathrm{d}x
+$$
+
+The expected value of 10 indiduals with varying heights can be computed in R as follows:
+
+```{r}
+# set seed for repeatable random draws
+set.seed(123)
+
+# draw 10 random heights of people entering bar
+heights <- rnorm(10, mean = 5.5, sd =0.5) 
+print(heights)
+
+# manually calculate the weighted heights
+mu_manual <- sum(heights/length(heights))
+
+# use the mean function to find the expectation
+mu_function <- mean(heights)
+```
+
+You will notice that height is not an integer and that someone can be $5.4$ feet tall, $5.43$ feet tall, $5.432$ feet tall and so on. This measure of height is _continuous_, so the probability of someone being exactly $5.4321283053..$ feet tall is $0$. Thus, we must consider an interval around $5.4$ for an estimate of the probability rather than a specified point mass at $5.4$. This is why I added the arrow of the summation notation converging to the integral for the continuous case. The smaller we slice the area, the closer we get to the true continuous distribution, as demonstrated below.
+
+```{r}
+# set seed for repeatable random draws
+set.seed(123)
+
+# sample 100,000 people entering the bar and plot the histogram.
+# The darker blue line demonstrates the theoretical true normal dist,
+# while the histogram bins the continuous values.
+heights <- data.frame(height = rnorm(100000, mean = 5.5, sd =0.5))
+
+ggplot(heights, aes(height)) +
+	geom_histogram(stat = "bin", colour = "black", fill = "lightblue", 
+								 binwidth = 0.1, aes(y = ..density..)) +
+	stat_function(fun = dnorm, colour = "blue", 
+								args = list(5.5, 0.5), size = 1) +
+	geom_vline(xintercept = 5.5, colour = "red", linetype = "dashed", size = 1) +
+	geom_vline(xintercept = c(5.5+2*0.5, 5.5-2*0.5), colour = "red") +
+	theme_bw()
+```
+
+<br>
+
+##### Variance and Standard Deviation
+
+Of course, not everyone has the same height that comes in. There are people entering of all different races and genders, so we can expect to see variation around the expected value (there may even be multiple distributions == multimodal). Variance around the expectation is valled variance and is calculated almost as simply as the expectation above, except for variance, we do a weighted sum of the differences in each value from the mean as such: 
+
+$$
+\operatorname{Var}(X) =\sigma^2 = \sum_{i=1}^n p_i\cdot(x_i - \mu)^2 = \int (x-\mu)^2 \, f(x) \, \mathrm{d}x
+$$
+
+The standard deviation is simply the square root $\sigma = \sqrt{\sigma^2}$, which standardises the variance so we can simply compare it to the mean by adding or subtracting the value. The solid red lines in the previous plot represent the 2 standard deviations from the mean. Within these bounds of two standard deviations from the mean lies 95% of our height values, which represents our level of confidence in the estimate represented by the mean.
+
+<br>
+
+##### Probability Mass and Densities
+
+In the previous example, we assumed a Gaussian (normal) distribution. There are many reasons why we would use a normal distribution besides the numbers being continuous in value, as we will explain shortly. I would just like to emphasise that not everything is normally distributed. A probability mass function (PMF) is a discrete distribution as each number is a point mass (heads has a 0.5 probability of coming up) as opposed to a probability density function (PDF) which creates bins of continous values.
+
+Please check out this [Wiki page](https://en.wikipedia.org/wiki/List_of_probability_distributions) to get a better understanding of the properties and uses of the wide veriety of distributions, along with their limitations. 
+
+<br>
+
+##### Simulating random numbers
+
+When we have an idea of what distribution the data follows, we can generate random draws from the distribution. Essentially, this is what monte carlo simulation is all about. I already gave you a brief taste of a simulation involving heights of people walking into a bar. R comes with a myriad of random number simulators ranging from Poisson to a 3 perameter Weibull. You simulate random draws as follows, then examine them as you would with any other set of observations:
+
+```{r}
+rand_norm <- rnorm(100, 10, 1) # random normal with 100 draws, mean=10 & sd=1
+rand_poisson <- rpois(200, 5)  # random poisson with rate paramater lambda=5
+rand_gamma <- rgamma(1500, 3, 2) # random poisson with shape=3 and rate=2
+```
+
+<br>
+
+##### Central Limit Theorum (CLT)
+
+The central limit theorem states that the means of independently identically distributed (iid) samples (here denoted as $X$) will be approximately normal even though the underlying observations do not follow a normal distribution. This is why we are tempted to use a normal distribution for many applications and why we encounter it again and again. This is a fascinating result when we have enough samples!
+
+$$
+X_i \sim \textrm{some distribution}
+$$
+
+$$
+\sqrt{n}\bigg(\bigg(\frac{1}{n}\sum_{i=1}^n X_i\bigg) - \mu\bigg)\ \xrightarrow{d}\ N(0,\;\sigma^2)
+$$
+
+Here's an example of the CLT in action with a uniform distribution. As we cumulatively average the random draws for 4 sample populations with increasing draws, the distribution converges to the normal distribution. Check out the code and play with it yourself.
+
+```{r}
+par(mfrow=c(2,2))
+
+m <- 10000
+for (n in c(1,2,4,8)) {
+   sims <- matrix(runif(n*m), ncol=n)
+   means <- rowMeans(sims)
+   hist(means, main=paste("n = ", n), xlim=c(0,1))
+} 
+```
+
+
+<br>
+<br>
+<br>
+<br>
+
+___
+
+# Week 5 - Applied Probability and Simulation <a name="Week 4"></a>
+
+___
+
+
+##### How do we use probaility to model data?
+
+We must first ask ourselves whether the data we are attempting to model are continuous or discrete. We then must consider the range of the data - are the outputs binary (1 or 0) or are they infinite?
+
+What defines any probability distribution are its parameters. Parameters are essentally the "control knobs" that dictate how the distribution should behave and generate new data. Thus, we must find parameters that best reflect the observed data - the parameters that offer the best fit of the distribution to the data should be the ideal distribution (so as long as you have your range covered).
+
+##### Fitting a distribution to Global GDP per Capita
+
+Let's examine the Global GDP per Capita. We will identify the ideal distribution for the particular task, then fit the parameters.
+
+```{r, warning=FALSE, message=FALSE}
+# World Bank API
+library(WDI)
+
+# retrieve GDP from World Bank api
+gdp <- WDI(country="all", indicator = "NY.GDP.PCAP.CD") %>% na.omit()
+colnames(gdp) <- c("iso2c", "country", "gdpPercap", "year")
+
+# derive mean and sd
+mean.logGDP <- mean(log(gdp$gdpPercap))
+sd.logGDP <- sd(log(gdp$gdpPercap))
+
+# plot histogram
+ggplot(gdp, geom = "density", aes(gdpPercap)) + 
+	geom_histogram(stat = "bin", binwidth=500, aes(y=..density..)) +
+	geom_density(colour="red", size = 1) + 
+	stat_function(fun = dlnorm, colour = "blue", 
+								args = list(mean.logGDP, sd.logGDP), size = 1) +
+	xlim(c(0, 60000)) +
+	theme_bw()
+```
+
+You will notice that the distribution seems to follow a lognormal distribution with a logmean parameter `r mean(log(gdp$gdpPercap))` and logsd parameter of `r sd(log(gdp$gdpPercap))`. Does this fit seem to accurately resemble the true distribution? Can you do any better?
+
+
+
+##### Simulating P-values
+
+Let's say we are interested in comparing two webpages based on their conversions. Site A has 25 conversions, while 100 impressions didn't convert. Site B has 35 conversions, while 115 didn't convert. We will model the this with two beta distributions and use a monte carlo simulation to determine how often A ends up being larger than B by analysing the simulated P-values.
+
+```{r}
+set.seed(111)
+
+runs <- 100000 # number of random draws
+siteA <- rbeta(runs, 20, 100) # random draws from siteA dist
+siteB <- rbeta(runs, 40, 115) # random draws from siteB dist
+pval.sim <- sum(siteA > siteB)/runs # Identify the p-value of siteA > siteB
+```
+
+Let's plot the histogram of the differences to quantify how big the difference really is between the two tests.
+
+```{r}
+ggplot(data.frame(diff = siteA/siteB), aes(diff, ..density..)) +
+	geom_histogram(stat="bin", binwidth=0.1, fill = "lightblue", colour = "black") +
+	theme_bw()
+```
+
+
+##### Simulate Stock Market Returns
+
+Let's try conducting stock market simulation!
+
+
 
 <br><br>
+	
