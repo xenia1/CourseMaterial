@@ -26,6 +26,7 @@ ___
 	* [Get familiar with Linear Algebra](#linAlgebra)
 	* [Probability](#prob)
 * [<font color="blue">Week 5 - Applied Probability and Simulation</font>](#Week 5)
+* [<font color="blue">Week 6 - Regression</font>](#Week 6)
 	
 <br>
 <br>
@@ -556,6 +557,8 @@ ___
 
 ___
 
+Slides: [probabilityIntro](https://htmlpreview.github.io/?https://github.com/AQM-UBC/CourseMaterial/blob/master/Week4_MathFoundation/ProbabilitySlides/Probability.html)
+
 The remainder of AQM will consist of modelling, therefore it is essential that we develop our mathematical intuition, including calculus, linear algebra and probability theory.
 
 > "All models are wrong, but some are useful" <br>
@@ -711,7 +714,7 @@ for (n in c(1,2,4,8)) {
 
 ___
 
-# Week 5 - Applied Probability and Simulation <a name="Week 4"></a>
+# Week 5 - Applied Probability and Simulation <a name="Week 5"></a>
 
 ___
 
@@ -785,7 +788,13 @@ ggplot(data.frame(diff = siteA/siteB), aes(diff, ..density..)) +
 
 Let's try conducting stock market simulation!
 
+___
 
+# Week 6 - Regression <a name="Week 6"></a>
+
+___
+
+Slides: [regression.pdf](https://github.com/AQM-UBC/CourseMaterial/raw/master/Week5_Simulation/regression.pdf)
 
 <br><br>
 	
