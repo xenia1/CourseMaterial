@@ -33,6 +33,9 @@ ___
 	* [Simulating P-values](#pvals)
 	* [Frequency and Probability of Coin Flips](#coinFlips)
 	* [How many runs of 6 heads can I expect after 1000 flips?](#runsof6)
+	* [Value at Risk (VaR) - A Stochastic Simulation Approach](#VaR)
+		* [<font color="orange">Simulation Challenge</font>](#challenge_MC)
+		* [<font color="orange">Option Pricing Challenge</font>](#challenge_BM)
 * [<font color="blue">Regression</font>](#regression)
 	
 <br>
@@ -872,7 +875,7 @@ The expected number of times a sequence of 7 head will pop up after 1000 flips (
 
 <br>
 
-### Value at Risk (VaR) - A Stochastic Simulation Approach
+### Value at Risk (VaR) - A Stochastic Simulation Approach <a name="VaR"></a>
 
 Value at Risk (VaR) is a statistical technique used in quantitative finance to quantify the risk exposure within a firm or an investment portfolio. VaR can be interpreted as a probability of a worst case scenerio. For example, a portfolio may have a $5\%$ one year VaR of $\$100$ million, indicating that there is a $5\%$ chance that the portfolio may lose $\$100$ million in a given year. Another way to put it is that in $\frac{1}{0.05} = 20$ years, the portfolio can expect to lose $\$100$ million. The VaR is simply the lower quantile of the distribution, as demonstrated in the diagram I pulled from the [wikipedia page](https://en.wikipedia.org/wiki/Value_at_risk).
 
@@ -1184,6 +1187,14 @@ abline(v=mu.portfolio*investment, lty=2); abline(v = VaR, col="red", lwd=2)
 
 Well done.
 
+<br>
+
+##### Challenge #1: Please use one of the above simulations for an application you are interested in. The simulation does not have to be the VaR, but can be any one of the monte carlo methods we covered.<a name="challenge_MC"></a>
+
+<br>
+
+##### Challenge #2: Translate the simulation above to be used for a single stock, then modify it to price a call or put option. Benchmark your price to the true price. Use this as a resource: [Option Pricing Using Monte Carlo Simulation](http://financetrain.com/option-pricing-using-monte-carlo-simulation/). State the assumptions involved in your simulation and whether they are reasonable for your purpose.<a name="challenge_BM"></a>
+
 
 <br>
 <br>
@@ -1197,6 +1208,8 @@ ___
 ___
 
 Slides: [regression.pdf](https://github.com/AQM-UBC/CourseMaterial/raw/master/Week5_Simulation/regression.pdf)
+
+Challenge: [Regression Simulation](https://htmlpreview.github.io/?https://github.com/AQM-UBC/CourseMaterial/blob/master/Week5_Simulation/Rscript_Challenge.html)
 
 <br><br>
 	

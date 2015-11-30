@@ -116,6 +116,7 @@ y1 &lt;-<span class="st"> </span>a -<span class="st"> </span>norm1</code></pre>
 <li>Examine the mean, variance and standard deviation of <code>y1</code>. Does this coincide with your expectations in question 4? Can we expect them to be exact?</li>
 <li>Examine your objects <code>norm1</code> and <code>y1</code> using the function <code>hist()</code>. What does this function <code>hist()</code> do? What do the outputs of the <code>hist()</code> tell us?</li>
 <li>How many samples did we use? What would happen if we used 100?</li>
+<li>Use R’s linear regression function <code>lm()</code> to solve for your coefficients. How close do you get to the true coefficients?</li>
 </ol>
 </div>
 <div id="question-2" class="section level4">
@@ -158,6 +159,7 @@ z &lt;-<span class="st"> </span>beta0 +<span class="st"> </span>beta1*x1 +<span 
 <li>What is the <em>mean</em>, <em>var</em>, and <em>sd</em> of <code>x1</code> and <code>x2</code>?</li>
 <li>What is the <em>mean</em>, <em>var</em>, and <em>sd</em> of <code>z</code>?</li>
 <li>Is this expected? Explain how you could calculate an exact <code>z</code> without code. (HINT: calculate it yourself and check your numbers are approximated by question 2.)</li>
+<li>Use R’s linear regression function <code>lm()</code> to solve for your coefficients. How close do you get to the true coefficients?</li>
 </ol>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Build a matrix from above</span>
 mat &lt;-<span class="st"> </span><span class="kw">cbind</span>(z, x1, x2)</code></pre>
@@ -180,6 +182,7 @@ mat &lt;-<span class="st"> </span><span class="kw">cbind</span>(z, x1, x2)</code
 <h3>Part 3</h3>
 <hr />
 <p>Build your own function using random objects (random variables) as above and examine it using the functions you have already learned. As we have seen, <code>pairs()</code> lets us better examine data with multi-variables, so don’t be afraid to add more. If this section scares you, just experiment with the example in <strong>Part 2</strong>: add more/less samples, make <code>rnorm()</code> into <code>runif()</code>, or change the values of the coefficients and see what kind of results you get. Don’t forget to show your code and explain your process to the rest of your team.</p>
+<p><br></p>
 <p><strong>Congrats, you’ve made it to the end!!</strong></p>
 </div>
 

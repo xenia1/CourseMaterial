@@ -47,6 +47,7 @@ y1 <- a - norm1
 5. Examine the mean, variance and standard deviation of `y1`. Does this coincide with your expectations in question 4? Can we expect them to be exact?
 6. Examine your objects `norm1` and `y1` using the function `hist()`. What does this function `hist()` do? What do the outputs of the `hist()` tell us?
 7. How many samples did we use? What would happen if we used 100?
+8. Use R's linear regression function `lm()` to solve for your coefficients. How close do you get to the true coefficients?
 
 #### Question 2
 Follow the same questions above with the following R script, replacing `a` with `b`, `norm1` with `norm2`, and so on.
@@ -91,6 +92,7 @@ z <- beta0 + beta1*x1 + beta2*x2 + rnorm(100)
 1. What is the _mean_, _var_, and _sd_ of `x1` and `x2`?
 2. What is the _mean_, _var_, and _sd_ of `z`?
 3. Is this expected? Explain how you could calculate an exact `z` without code. (HINT: calculate it yourself and check your numbers are approximated by question 2.)
+4. Use R's linear regression function `lm()` to solve for your coefficients. How close do you get to the true coefficients?
 
 ```{r}
 # Build a matrix from above
@@ -117,10 +119,6 @@ pairs(mat)
 
 Build your own function using random objects (random variables) as above and examine it using the functions you have already learned. As we have seen, `pairs()` lets us better examine data with multi-variables, so don't be afraid to add more. If this section scares you, just experiment with the example in **Part 2**: add more/less samples, make `rnorm()` into `runif()`, or change the values of the coefficients and see what kind of results you get. Don't forget to show your code and explain your process to the rest of your team.
 
-
-
-
-
-
+<br>
 
 **Congrats, you've made it to the end!!**
